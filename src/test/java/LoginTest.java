@@ -3,6 +3,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -20,8 +21,8 @@ public class LoginTest {
 		@BeforeSuite
 		public void setUp ()
 		{
-			WebDriverManager.firefoxdriver().setup();
-			driver = new FirefoxDriver();
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
 			
 		}
 		@Test
@@ -30,9 +31,10 @@ public class LoginTest {
 			driver.get("http://gmail.com");
 			@SuppressWarnings("deprecation")
 			WebDriverWait wait = new WebDriverWait(driver, 60);
-			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='identifierId']"))).sendKeys("trainer@way2automation.com");
+			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*[@id='identifierId']"))).sendKeys("krmurugesan54@gmail.com");
 			driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button")).click();
 			wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[1]/div/form/span/section/div/div/div[1]/div[1]/div/div/div/div/div[1]/div/div[1]/input"))).sendKeys("234aweaeqwer");
+			driver.findElement(By.xpath("/html/body/div[1]/div[1]/div[2]/div/div[2]/div/div/div[2]/div/div[2]/div/div[1]/div/div/button/div[2]")).click();
 		}
 		
 		@AfterSuite
